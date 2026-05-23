@@ -1,0 +1,212 @@
+/* eslint-disable no-restricted-globals */
+
+// Cache configuration with versioning
+const CACHE_VERSION = 'suusri-cache-v2';
+const STATIC_CACHE = `${CACHE_VERSION}-static`;
+const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
+const FLASH_IMAGE = '/suu4.png';
+
+// Assets to cache for offline access
+const STATIC_ASSETS = [
+  '/',
+  '/index.html',
+  FLASH_IMAGE,
+  '/manifest.json'
+];
+
+// Install event - caching static assets
+self.addEventListener('install', (event) => {
+  console.log('Service Worker: Installing...');
+  event.waitUntil(
+    caches.open(STATIC_CACHE).then((cache) => {
+      console.log('Service Worker: Caching static assets');
+      return cache.addAll(STATIC_ASSETS);
+    }).then(() => {
+      // Skip waiting to activate immediately
+      return self.skipWaiting();
+    })
+  );
+});
+
+// Activate event - cleanup old caches
+self.addEventListener('activate', (event) => {
+  console.log('Service Worker: Activating...');
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cache) => {
+          // Delete old version caches
+          if (cache !== STATIC_CACHE && cache !== DYNAMIC_CACHE) {
+            console.log('Service Worker: Clearing old cache:', cache);
+            return caches.delete(cache);
+          }
+        })
+      );
+    }).then(() => {
+      // Claim clients immediately
+      return self.clients.claim();
+    })
+  );
+});
+
+// Fetch event - Stale-While-Revalidate strategy
+self.addEventListener('fetch', (event) => {
+  const { request } = event;
+  const url = new URL(request.url);
+
+  // Skip non-GET requests
+  if (request.method !== 'GET') {
+    return;
+  }
+
+  // Skip chrome-extension and other non-http requests
+  if (!url.protocol.startsWith('http')) {
+    return;
+  }
+
+  // For same-origin requests, use Stale-While-Revalidate
+  if (url.origin === location.origin) {
+    event.respondWith(staleWhileRevalidate(request));
+  } else {
+    // For cross-origin requests (like API calls), use Network First
+    event.respondWith(networkFirst(request));
+  }
+});
+
+// Stale-While-Revalidate strategy
+async function staleWhileRevalidate(request) {
+  const cache = await caches.open(DYNAMIC_CACHE);
+  const cachedResponse = await cache.match(request);
+
+  const fetchPromise = fetch(request).then((response) => {
+    // Only cache valid responses
+    if (response.ok) {
+      cache.put(request, response.clone());
+    }
+    return response;
+  }).catch((error) => {
+    console.log('Fetch failed:', error);
+    // Return cached response if network fails
+    return cachedResponse;
+  });
+
+  // Return cached response immediately, then update cache
+  return cachedResponse || fetchPromise;
+}
+
+// Network First strategy
+async function networkFirst(request) {
+  try {
+    const response = await fetch(request);
+    if (response.ok) {
+      const cache = await caches.open(DYNAMIC_CACHE);
+      cache.put(request, response.clone());
+    }
+    return response;
+  } catch (error) {
+    const cache = await caches.open(DYNAMIC_CACHE);
+    const cachedResponse = await cache.match(request);
+    return cachedResponse || new Response('Offline', { status: 503 });
+  }
+}
+
+// Push event - handling notifications with the "flash image"
+self.addEventListener('push', (event) => {
+  let data = {};
+  if (event.data) {
+    data = event.data.json();
+  }
+
+  const title = data.title || 'SuuSri';
+  const options = {
+    body: data.body || 'New update from SuuSri!',
+    icon: '/suu4.png',
+    badge: '/suu4.png',
+    image: FLASH_IMAGE,
+    vibrate: [100, 50, 100],
+    data: {
+      url: data.url || '/',
+      timestamp: Date.now()
+    },
+    actions: [
+      { action: 'open', title: 'Open' },
+      { action: 'close', title: 'Close' }
+    ]
+  };
+
+  event.waitUntil(
+    self.registration.showNotification(title, options)
+  );
+});
+
+// Notification click event
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+
+  if (event.action === 'close') {
+    return;
+  }
+
+  const urlToOpen = event.notification.data?.url || '/';
+
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true })
+      .then((windowClients) => {
+        // Check if there is already a window open
+        for (const client of windowClients) {
+          if (client.url.includes(self.location.origin) && 'focus' in client) {
+            client.navigate(urlToOpen);
+            return client.focus();
+          }
+        }
+        // If no window is open, open a new one
+        if (clients.openWindow) {
+          return clients.openWindow(urlToOpen);
+        }
+      })
+  );
+});
+
+// Background Sync for offline message sending
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'sync-messages') {
+    event.waitUntil(syncMessages());
+  }
+});
+
+async function syncMessages() {
+  // Get pending messages from IndexedDB or cache
+  const cache = await caches.open(DYNAMIC_CACHE);
+  const pendingRequests = await cache.match('pending-messages');
+
+  if (pendingRequests) {
+    const messages = await pendingRequests.json();
+    for (const message of messages) {
+      try {
+        await fetch(message.url, {
+          method: message.method,
+          headers: message.headers,
+          body: JSON.stringify(message.body)
+        });
+      } catch (error) {
+        console.log('Failed to sync message:', error);
+      }
+    }
+  }
+}
+
+// Message handler for communication with the app
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+
+  if (event.data && event.data.type === 'CACHE_URLS') {
+    const urls = event.data.urls;
+    event.waitUntil(
+      caches.open(DYNAMIC_CACHE).then((cache) => {
+        return cache.addAll(urls);
+      })
+    );
+  }
+});
