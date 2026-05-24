@@ -198,14 +198,14 @@ const Chat = () => {
       Instructions:
       - Use the EHR data to provide personalized health suggestions based on the user's medical history, lifestyle, and family history.
       - Suggest actions like doctor visits, lifestyle changes, or reminders based on the EHR when relevant to the user's input.
-      - If the user mentions specific app features (e.g., "blood donation," "doctor appointment," "medicine store"), respond briefly and then indicate you're redirecting them to the relevant section of the Swasthya Setu app.
+      - When the user mentions topics like doctors, medicine, blood donation, or other health features, respond helpfully and conversationally without suggesting any page redirects.
       
       Examples:
       User (Hinglish): "Mujhe blood donate karna hai"
-      Response: "Subham, tu eligible hai blood donate karne ke liye since last donation 12/9/2024 ko tha. Chalo, main tujhe blood donation page pe le jati hoon!"
+      Response: "Subham, tu eligible hai blood donate karne ke liye since last donation 12/9/2024 ko tha. Kya tujhe koi specific information chahiye blood donation ke baare mein?"
       
       User (Hinglish): "Mujhe doctor se milna hai"
-      Response: "Subham, heart disease history ko dekhte hue doctor se milna acha idea hai. Main tujhe doctors page pe redirect karti hoon!"`,
+      Response: "Subham, heart disease history ko dekhte hue doctor se milna acha idea hai. Kya main tujhe kisi specific doctor ke baare mein bataun ya appointment lene mein help karun?"`,
   };
 
   useEffect(() => {
@@ -234,53 +234,6 @@ const Chat = () => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  const redirectToFeature = (input) => {
-    const lowerInput = input.toLowerCase();
-    if (lowerInput.includes("blood donate") || lowerInput.includes("blood donation")) {
-      return "/blood-donation";
-    } else if (lowerInput.includes("blood test")) {
-      return "/blood-test";
-    } else if (lowerInput.includes("all labs")) {
-      return "/all-labs";
-    } else if (lowerInput.includes("check report")) {
-      return "/check-report";
-    } else if (lowerInput.includes("download report")) {
-      return "/download-report";
-    } else if (lowerInput.includes("follow up")) {
-      return "/follow-up";
-    } else if (lowerInput.includes("track order")) {
-      return "/track-order";
-    } else if (lowerInput.includes("doctor") || lowerInput.includes("appointment")) {
-      return "/doctors";
-    } else if (lowerInput.includes("medicine all")) {
-      return "/medicine-all";
-    } else if (lowerInput.includes("medicine") || lowerInput.includes("dawai")) {
-      return "/medicine-stores";
-    } else if (lowerInput.includes("nutrition") || lowerInput.includes("diet")) {
-      return "/nutrition";
-    } else if (lowerInput.includes("ehr") || lowerInput.includes("health data")) {
-      return "/EHRHealthData";
-    } else if (lowerInput.includes("ambulance")) {
-      return "/ambulance";
-    } else if (lowerInput.includes("hospital") || lowerInput.includes("aspatal")) {
-      return "/all-hospitals";
-    } else if (lowerInput.includes("medical records")) {
-      return "/medical-records";
-    } else if (lowerInput.includes("emergency services")) {
-      return "/emergency-services";
-    } else if (lowerInput.includes("billing")) {
-      return "/billing";
-    } else if (lowerInput.includes("nutritionist")) {
-      return "/nutritionists";
-    } else if (lowerInput.includes("nutritionist appointment")) {
-      return "/nutritionist-appointments";
-    } else if (lowerInput.includes("video call") || lowerInput.includes("video calling")) {
-      return "/vedio-calling";
-    } else if (lowerInput.includes("accident") || lowerInput.includes("emergency")) {
-      return "/accident-alert";
-    }
-    return null;
-  };
 
   const startListening = () => {
     if (recognition.current && !isListening) {
@@ -352,24 +305,6 @@ const Chat = () => {
     setIsTyping(true);
 
     try {
-      const redirectPath = redirectToFeature(input);
-      if (redirectPath) {
-        const redirectMessage = `Subham, main Mujhe ${redirectPath.split('/')[1].replace('-', ' ')} page pe le jati hoon! Ek second ruko...`;
-        const hindiRedirectMessage = `Subham, मैं तुझे ${redirectPath.split('/')[1].replace('-', ' ')} पेज पर ले जाती हूँ! एक सेकंड रुको...`;
-        setMessages((prev) => [
-          ...prev,
-          { text: redirectMessage, sender: "ai", timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) },
-        ]);
-        setConversationHistory((prev) => [
-          ...prev,
-          { role: "user", parts: [{ text: input }] },
-          { role: "model", parts: [{ text: redirectMessage }] },
-        ]);
-        speakText(hindiRedirectMessage);
-        setTimeout(() => navigate(redirectPath), 1000);
-        setIsTyping(false);
-        return;
-      }
 
       const userLang = "Hinglish";
       console.log("Forced language for this message:", userLang);
