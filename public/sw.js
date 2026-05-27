@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 
 // Cache configuration with versioning
-const CACHE_VERSION = 'suusri-cache-v4';
+const CACHE_VERSION = 'suusri-cache-v5';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const FLASH_IMAGE = '/suu4.png';
@@ -11,7 +11,11 @@ const STATIC_ASSETS = [
   '/',
   '/index.html',
   FLASH_IMAGE,
-  '/manifest.json'
+  '/manifest.json',
+  '/suu-icon-192.png',
+  '/suu-icon-512.png',
+  '/suu-icon-maskable-512.png',
+  '/favicon.ico'
 ];
 
 // Install event - caching static assets
