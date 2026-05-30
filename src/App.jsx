@@ -6,10 +6,11 @@ import ErrorBoundary from './lib/ErrorBoundary';
 import LoadingSkeleton from './components/LoadingSkeleton';
 import './App.css';
 
-// Lazy load components for better performance (code splitting)
-const Main = lazy(() => import('./components/Main'));
+import Welcome from './components/Welcome';
+import Main from './components/Main';
+
+// Lazy load other components for better performance (code splitting)
 const Chat = lazy(() => import('./components/Main/Chat'));
-const Welcome = lazy(() => import('./components/Welcome'));
 const SuuSri = lazy(() => import('./components/Main/suusri'));
 const Profile = lazy(() => import('./components/Profile/Profile'));
 const VideoConsultation = lazy(() => import('./components/Main/VideoConsultation'));

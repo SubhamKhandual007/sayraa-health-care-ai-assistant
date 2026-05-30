@@ -33,33 +33,20 @@
 }
 
 @media (max-width: 768px) {
-  .blob {
-    width: 300px;
-    height: 300px;
-    filter: blur(50px);
-    animation: none !important;
-    transform: translate3d(0, 0, 0);
-    will-change: auto;
+  .blob-container {
+    display: none !important;
   }
-
-  .blob-3 {
-    width: 200px;
-    height: 200px;
+  .blob {
+    display: none !important;
   }
 }
 
 @media (max-width: 480px) {
-  .blob {
-    width: 200px;
-    height: 200px;
-    filter: blur(40px);
-    animation: none !important;
-    transform: translate3d(0, 0, 0);
+  .blob-container {
+    display: none !important;
   }
-
-  .blob-3 {
-    width: 150px;
-    height: 150px;
+  .blob {
+    display: none !important;
   }
 }
 

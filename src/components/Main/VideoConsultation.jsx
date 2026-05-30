@@ -117,7 +117,7 @@ const VideoConsultation = () => {
           setCameraError("Camera requires HTTPS or supported browser.");
           return;
         }
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } });
         streamRef.current = stream;
         if (userVideoRef.current) {
           userVideoRef.current.srcObject = stream;
@@ -218,6 +218,10 @@ const VideoConsultation = () => {
         } catch(e) {
           console.error(e);
         }
+      } else if (!recognition.current) {
+        // Fallback for browsers that don't support Speech API (e.g. iOS Safari)
+        alert("Voice recognition is not supported on this browser. Please use the text chat to consult with the AI Doctor.");
+        setIsMuted(true); // Keep it muted
       }
     }
   };

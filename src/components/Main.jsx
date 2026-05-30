@@ -78,6 +78,8 @@ const Main = () => {
                   src={icon}
                   alt="SuuSri AI Assistant"
                   className="img-fluid custom-image"
+                  fetchPriority="high"
+                  loading="eager"
                   animate={{ y: [0, -15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 />
