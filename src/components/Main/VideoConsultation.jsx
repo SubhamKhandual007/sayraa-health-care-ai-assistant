@@ -121,6 +121,11 @@ const VideoConsultation = () => {
         streamRef.current = stream;
         if (userVideoRef.current) {
           userVideoRef.current.srcObject = stream;
+          userVideoRef.current.onloadedmetadata = () => {
+            if (userVideoRef.current) {
+              userVideoRef.current.play().catch(e => console.error("Error playing video:", e));
+            }
+          };
         }
       } catch (err) {
         console.error("Error accessing webcam:", err);
@@ -279,9 +284,9 @@ const VideoConsultation = () => {
         ) : (
           <video 
             ref={userVideoRef} 
-            autoPlay 
-            playsInline 
-            muted 
+            autoPlay={true} 
+            playsInline={true} 
+            muted={true} 
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         )}

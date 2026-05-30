@@ -1,8 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 100dvh;
   min-height: 100vh;
+  min-height: 100dvh;
   background-color: #2b353f; /* Exact dark slate background */
   color: white;
   font-family: 'Inter', sans-serif;
