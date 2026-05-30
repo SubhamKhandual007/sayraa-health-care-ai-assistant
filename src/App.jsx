@@ -12,6 +12,7 @@ const Chat = lazy(() => import('./components/Main/Chat'));
 const Welcome = lazy(() => import('./components/Welcome'));
 const SuuSri = lazy(() => import('./components/Main/suusri'));
 const Profile = lazy(() => import('./components/Profile/Profile'));
+const VideoConsultation = lazy(() => import('./components/Main/VideoConsultation'));
 
 // Loading fallback component
 const LoadingFallback = () => (
@@ -33,6 +34,7 @@ const App = () => {
                 <Route path="/chat" element={<Chat />} />
                 <Route path="/suusri" element={<SuuSri />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/video-consultation" element={<VideoConsultation />} />
               </Routes>
             </Suspense>
           </div>

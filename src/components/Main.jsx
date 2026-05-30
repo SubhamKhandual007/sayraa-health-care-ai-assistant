@@ -30,6 +30,19 @@ const Main = () => {
     }
   };
 
+  const handleVideoConsultClick = async () => {
+    if (user) {
+      navigate('/video-consultation');
+    } else {
+      try {
+        await loginWithGoogle();
+        navigate('/video-consultation');
+      } catch (err) {
+        console.error("Login Error:", err);
+      }
+    }
+  };
+
 
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
@@ -75,12 +88,20 @@ const Main = () => {
                   <b>Your Smart Health Care AI Assistant</b>
                 </h1>
                 <p className="content-text">SuuSri stands for Smart Universal User Support & Resource Integration, providing intelligent healthcare guidance, symptom analysis, and wellness support.</p>
-                <button className="button-69" role="button" onClick={handleChatNowClick}>
-                  <span className="text">
-                    <i className="fas fa-comments"></i>
-                    <b>CHAT NOW</b>
-                  </span>
-                </button>
+                <div className="d-flex justify-content-center gap-3 flex-wrap">
+                  <button className="button-69" role="button" onClick={handleChatNowClick}>
+                    <span className="text">
+                      <i className="fas fa-comments"></i>
+                      <b>CHAT NOW</b>
+                    </span>
+                  </button>
+                  <button className="button-69" role="button" onClick={handleVideoConsultClick} style={{ background: "linear-gradient(90deg, #6366f1, #a855f7)", color: "white", border: "none" }}>
+                    <span className="text">
+                      <i className="fas fa-video"></i>
+                      <b style={{ marginLeft: "5px" }}>VIDEO CONSULT</b>
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </motion.div>
