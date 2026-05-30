@@ -124,6 +124,7 @@ const Main = () => {
                   src={icon1}
                   alt="SuuSri AI"
                   className="img-fluid custom-image"
+                  loading="lazy"
                   animate={{ y: [0, 15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 />
@@ -144,6 +145,7 @@ const Main = () => {
                   src={icon2}
                   alt="Intelligent Assistant"
                   className="img-fluid custom-image"
+                  loading="lazy"
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 />

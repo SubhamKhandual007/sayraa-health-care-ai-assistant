@@ -37,6 +37,9 @@
     width: 300px;
     height: 300px;
     filter: blur(50px);
+    animation: none !important;
+    transform: translate3d(0, 0, 0);
+    will-change: auto;
   }
 
   .blob-3 {
@@ -50,6 +53,8 @@
     width: 200px;
     height: 200px;
     filter: blur(40px);
+    animation: none !important;
+    transform: translate3d(0, 0, 0);
   }
 
   .blob-3 {

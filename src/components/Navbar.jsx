@@ -67,8 +67,18 @@ export default function Navbar() {
                 <div className="container d-flex justify-content-between align-items-center">
                     <a className="navbar-brand" href="/"><b>SuuSri</b></a>
                     
-                    <div className="nav-profile-wrapper" ref={dropdownRef}>
-                        <div className="nav-profile" onClick={handleProfileClick}>
+                    <div className="d-flex align-items-center gap-3">
+                        {/* Quick Video Consult Button for Mobile/Desktop */}
+                        <button 
+                            onClick={() => navigate('/video-consultation')}
+                            className="btn btn-sm d-flex align-items-center"
+                            style={{ background: 'linear-gradient(90deg, #6366f1, #a855f7)', color: 'white', borderRadius: '20px', padding: '5px 12px', border: 'none', fontWeight: 'bold', fontSize: '0.85rem' }}
+                        >
+                            <i className="fas fa-video me-1"></i> <span className="d-none d-sm-inline">Consult</span>
+                        </button>
+
+                        <div className="nav-profile-wrapper" ref={dropdownRef}>
+                            <div className="nav-profile" onClick={handleProfileClick}>
                             {user && user.picture ? (
                                 <img 
                                   src={user.picture} 
@@ -95,14 +105,18 @@ export default function Navbar() {
                                     <span className="dropdown-user-email">{user.email}</span>
                                 </div>
                                 <hr className="dropdown-divider" />
+                                <button className="dropdown-item" onClick={() => { setShowDropdown(false); navigate('/video-consultation'); }}>
+                                    <i className="fas fa-video text-primary"></i> Video Consult
+                                </button>
                                 <button className="dropdown-item" onClick={handleGoToProfile}>
-                                    <i className="fas fa-user"></i> Profile
+                                    <i className="fas fa-user text-info"></i> Profile
                                 </button>
                                 <button className="dropdown-item dropdown-logout" onClick={handleLogout}>
                                     <i className="fas fa-sign-out-alt"></i> Logout
                                 </button>
                             </div>
                         )}
+                        </div>
                     </div>
                 </div>
             </nav>
