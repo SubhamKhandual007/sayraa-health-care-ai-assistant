@@ -114,7 +114,7 @@ const Main = () => {
                   <b>Healthcare Intelligence</b>
                 </h1>
                 <p className="content-text">SuuSri is designed to provide proactive health tracking, analyze your symptoms, and enhance your medical awareness with precise, reliable, and empathetic AI responses.</p>
-                <button className="button-69" role="button" onClick={handleVideoConsultClick} style={{ background: "linear-gradient(90deg, #6366f1, #a855f7)", color: "white", border: "none" }}>
+                <button className="button-69" role="button" onClick={handleVideoConsultClick}>
                   <span className="text">
                     <i className="fas fa-video"></i>
                     <b style={{ marginLeft: "5px" }}>VIDEO CONSULT</b>
