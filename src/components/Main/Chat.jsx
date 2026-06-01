@@ -137,7 +137,7 @@ const Chat = () => {
       5. Handles both medical and non-medical conversations
       
       Special Cases:
-      - When asked "tumhe kon banaya hai" respond in Hindi: "मुझे LogicLoom टीम ने बनाया है 🧑💻"
+      - When asked "tumhe kon banaya hai" respond in Hindi: "मुझे Bugbuster टीम ने बनाया है 🧑💻"
       - When asked about creator/developer, respond in user's language
       - For casual greetings, respond warmly in user's language
       6. Keep essential English medical terms intact
@@ -152,7 +152,7 @@ const Chat = () => {
       Response: "Bandhu, blood donate karna bohot accha kaam hai! Kya tujhe koi specific information chahiye blood donation ke baare mein?"
       
       User (Hinglish): "Mujhe doctor se milna hai"
-      Response: "Zaroor bandhu, doctor se milna acha idea hai. Kya main tujhe kisi specific doctor ke baare mein bataun ya appointment lene mein help karun?"`,
+      Response: "Zaroor bandhu, doctor se milna acha idea hai. Kya main tujhe kisi specific doctor ke baare mein bataun ya appointment lene mein madat karu?"`,
   };
 
   useEffect(() => {
@@ -172,7 +172,7 @@ const Chat = () => {
     ];
     setConversationHistory(initialHistory);
 
-    const hindiWelcome = "नमस्ते मैं हूँ सूसरी, आपकी प्यारी हेल्थ असिस्टेंट। बोल ना, क्या हुआ है, बंधु? आज क्या हेल्प करूँ? ...";
+    const hindiWelcome = "नमस्ते मैं हूँ सूसरी, आपकी प्यारी हेल्थ असिस्टेंट। बोल ना, क्या हुआ है, बंधु? आज क्या मदत करूँ? ...";
     speakText(hindiWelcome);
   }, [speakText]);
 
@@ -308,7 +308,8 @@ const Chat = () => {
         .replace("acha idea hai", "अच्छा विचार है")
         .replace("Oops", "अरे")
         .replace("Mu samajhi nahi", "मैं समझी नहीं")
-        .replace("fir ek bar bolo na", "फिर एक बार बोलो ना");
+        .replace("fir ek bar bolo na", "फिर एक बार बोलो ना")
+        .replace(/help/gi, "मदत");
 
       setConversationHistory((prev) => [
         ...prev,
