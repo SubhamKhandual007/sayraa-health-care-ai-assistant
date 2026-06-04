@@ -60,7 +60,7 @@ const VideoConsultation = () => {
     if (hasStarted.current) return;
     hasStarted.current = true;
     
-    const initialGreeting = "Namaste, mein Syra apki AI doctor hun. Bataiye, aaj main aapki kya madad kar sakti hoon?";
+    const initialGreeting = "Namaste, mein Sayraa apki AI doctor hun. Bataiye, aaj main aapki kya madad kar sakti hoon?";
     
     setConversationHistory([
       { role: "assistant", content: initialGreeting }
@@ -153,7 +153,7 @@ const VideoConsultation = () => {
 
   useEffect(() => {
     if (conversationHistory.length > 0) {
-        localStorage.setItem("syraVideoHistory", JSON.stringify(conversationHistory));
+        localStorage.setItem("sayraaVideoHistory", JSON.stringify(conversationHistory));
     }
   }, [conversationHistory]);
 
@@ -165,7 +165,7 @@ const VideoConsultation = () => {
     setIsAiTyping(true); // Show typing indicator
     
     try {
-      const systemPrompt = `You are Syra, an advanced AI doctor with comprehensive knowledge across all medical departments, diseases, and diagnoses. 
+      const systemPrompt = `You are Sayraa, an advanced AI doctor with comprehensive knowledge across all medical departments, diseases, and diagnoses. 
       Analyze the patient's symptoms, provide preliminary medical guidance, health suggestions, precautionary measures, and basic treatment recommendations. 
       If it sounds like an emergency (e.g., severe chest pain, stroke symptoms, difficulty breathing), immediately generate an emergency alert recommendation.
       Be empathetic, concise, and speak clearly as this will be read out loud via text-to-speech. Communicate naturally in Hinglish or English based on the user's input. Do not use emojis or complex formatting. Keep answers under 3-4 sentences.`;
@@ -284,7 +284,7 @@ const VideoConsultation = () => {
           <line x1="8" y1="16" x2="8" y2="16"></line>
           <line x1="16" y1="16" x2="16" y2="16"></line>
         </svg>
-        <span>Syra AI</span>
+        <span>Sayraa AI</span>
       </div>
 
       {/* Top Right User Video */}
@@ -306,12 +306,12 @@ const VideoConsultation = () => {
 
       <div className={styles.mainContent}>
         <img 
-          src="/doctors/syra_general.png" 
+          src="/doctors/sayraa_general.png" 
           alt="Dr. AI" 
           className={styles.doctorImage} 
           style={{ animation: aiResponse ? 'pulse 2s infinite alternate' : 'none' }}
         />
-        <div className={styles.doctorName}>Syra Ai dr</div>
+        <div className={styles.doctorName}>Sayraa Ai dr</div>
 
         <div className={styles.chatBox}>
           <div className={styles.chatMessages}>

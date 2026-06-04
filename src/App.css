@@ -17,46 +17,39 @@
   text-align: center;
   margin-top: 5px;
   font-family: 'Lora', serif;
-  /* Use Lora for default text */
   color: white;
 }
 
 .highlight {
   color: #ff69b4;
-  /* Pink color */
   font-weight: bold;
   font-family: 'Anton', sans-serif;
-  /* Use Anton for "Syra" */
-
 }
 
-.syraText {
+.sayraaText {
   font-family: 'Pacifico', cursive;
-  /* Use Pacifico for "Meet" */
   color: #FFA500;
-  /* Orange color for Syra text */
 }
 
-.syraContainer {
+.sayraaContainer {
   display: flex;
   justify-content: center;
   margin-top: 40px;
 }
 
-.syra {
+.sayraa {
   width: 300px;
-  /* Adjust size as needed */
   height: auto;
 }
 
 @media (max-width: 768px) {
-  .syra {
+  .sayraa {
     width: 200px;
   }
 }
 
 @media (max-width: 480px) {
-  .syra {
+  .sayraa {
     width: 150px;
   }
 }

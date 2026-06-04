@@ -65,7 +65,7 @@ export default function Navbar() {
         <>
             <nav className={`navbar navbar-expand-lg sticky-top ${scrolled ? 'scrolled' : ''}`}>
                 <div className="container d-flex justify-content-between align-items-center">
-                    <a className="navbar-brand" href="/"><b>Syra</b></a>
+                    <a className="navbar-brand" href="/"><b>Sayraa</b></a>
                     
                     <div className="d-flex align-items-center gap-3">
                         {/* Quick Video Consult Button for Mobile/Desktop */}

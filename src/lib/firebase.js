@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
@@ -10,13 +11,13 @@ let analytics = null;
 let initialized = false;
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBbvGRqi1qTUAIGsy6XhX4avY3jsF_23wE",
-    authDomain: "suusri-56c82.firebaseapp.com",
-    projectId: "suusri-56c82",
-    storageBucket: "suusri-56c82.firebasestorage.app",
-    messagingSenderId: "176648937808",
-    appId: "1:176648937808:web:1c497d5aa509fac5fe4c55",
-    measurementId: "G-R0X3KPK5E3"
+  apiKey: "AIzaSyDmJYG-2SJ8qbb7Ukhkuw3TmIRbJwn0kA0",
+  authDomain: "sayraa-19df7.firebaseapp.com",
+  projectId: "sayraa-19df7",
+  storageBucket: "sayraa-19df7.firebasestorage.app",
+  messagingSenderId: "73455508153",
+  appId: "1:73455508153:web:799955665660eb405ed968",
+  measurementId: "G-NMVKJ1VMF6"
 };
 
 export function getFirebase() {
@@ -27,6 +28,11 @@ export function getFirebase() {
         auth = getAuth(app);
         provider = new GoogleAuthProvider();
         db = getFirestore(app);
+        try {
+            analytics = getAnalytics(app);
+        } catch (e) {
+            console.warn("Firebase Analytics failed to initialize:", e);
+        }
         initialized = true;
         
         // Add additional Google provider settings
