@@ -32,7 +32,9 @@ const VideoConsultation = () => {
     // Stop any ongoing speech
     synth.cancel();
 
-    const utterance = new SpeechSynthesisUtterance(text);
+    // Replace "Sayraa" with phonetic spelling for correct TTS pronunciation
+    const spokenText = text.replace(/Sayraa/gi, "Sigh-raa");
+    const utterance = new SpeechSynthesisUtterance(spokenText);
     utterance.lang = "hi-IN";
     utterance.rate = 1;
     utterance.pitch = 1.2;
@@ -165,10 +167,10 @@ const VideoConsultation = () => {
     setIsAiTyping(true); // Show typing indicator
     
     try {
-      const systemPrompt = `You are Sayraa, an advanced AI doctor with comprehensive knowledge across all medical departments, diseases, and diagnoses. 
+      const systemPrompt = `You are Sayraa (pronounced "Sigh-raa"), an advanced AI doctor with comprehensive knowledge across all medical departments, diseases, and diagnoses. 
       Analyze the patient's symptoms, provide preliminary medical guidance, health suggestions, precautionary measures, and basic treatment recommendations. 
       If it sounds like an emergency (e.g., severe chest pain, stroke symptoms, difficulty breathing), immediately generate an emergency alert recommendation.
-      Be empathetic, concise, and speak clearly as this will be read out loud via text-to-speech. Communicate naturally in Hinglish or English based on the user's input. Do not use emojis or complex formatting. Keep answers under 3-4 sentences.`;
+      Be empathetic, concise, and speak clearly as this will be read out loud via text-to-speech. Communicate naturally in Hinglish or English based on the user's input. Do not use emojis or complex formatting. Keep answers under 3-4 sentences. IMPORTANT: When referring to yourself, always write your name as "Sayraa".`;
 
       const groqMessages = [
         { role: "system", content: systemPrompt },
