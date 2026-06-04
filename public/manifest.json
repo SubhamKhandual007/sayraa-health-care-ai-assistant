@@ -1,8 +1,8 @@
 {
-  "name": "SuuSri - Your Smart AI Assistant",
-  "short_name": "SuuSri AI",
+  "name": "Syra - Your Smart AI Assistant",
+  "short_name": "Syra AI",
   "id": "/?source=pwa",
-  "description": "SuuSri: Your AI Assistant, smarter than autocorrect. Multi-lingual, offline-ready, and smarter every day.",
+  "description": "Syra: Your AI Assistant, smarter than autocorrect. Multi-lingual, offline-ready, and smarter every day.",
   "lang": "en",
   "categories": ["productivity", "utilities", "assistant", "AI"],
   "start_url": "/?source=pwa",
@@ -76,7 +76,7 @@
   "related_applications": [],
   "protocol_handlers": [
     {
-      "protocol": "suusri",
+      "protocol": "syra",
       "url": "/open?url=%s"
     }
   ]

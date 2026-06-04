@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 
 // Cache configuration with versioning
-const CACHE_VERSION = 'suusri-cache-v6';
+const CACHE_VERSION = 'syra-cache-v6';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const FLASH_IMAGE = '/suu4.png';
@@ -135,9 +135,9 @@ self.addEventListener('push', (event) => {
     data = event.data.json();
   }
 
-  const title = data.title || 'SuuSri';
+  const title = data.title || 'Syra';
   const options = {
-    body: data.body || 'New update from SuuSri!',
+    body: data.body || 'New update from Syra!',
     icon: '/suu4.png',
     badge: '/suu4.png',
     image: FLASH_IMAGE,

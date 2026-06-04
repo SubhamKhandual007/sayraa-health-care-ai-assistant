@@ -79,7 +79,7 @@ const Profile = () => {
   className="profile-pic-large" 
   onError={(e) => {
     e.target.src = '/suu-icon.png';
-    e.target.alt = 'SuuSri Avatar';
+    e.target.alt = 'Syra Avatar';
   }}
 />
                     </div>
@@ -112,7 +112,7 @@ const Profile = () => {
             </div>
             
             <div className="profile-footer">
-                <p>Protected by SuuSri Backend SSO</p>
+                <p>Protected by Syra Backend SSO</p>
             </div>
         </div>
     );

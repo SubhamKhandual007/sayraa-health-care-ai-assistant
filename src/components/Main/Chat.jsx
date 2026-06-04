@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./SuuSri.module.css";
+import styles from "./Syra.module.css";
 import Picker from "emoji-picker-react";
-import suusriAvatar from "../../Assets/img/suulogo.png";
+import syraAvatar from "../../Assets/img/suulogo.png";
 import chatBg from "../../Assets/img/chat_bg.png";
 
 const API_BASE_URL = "http://localhost:5000";
@@ -63,7 +63,7 @@ const Chat = () => {
 
   // Load messages from localStorage on mount
   useEffect(() => {
-    const savedMessages = localStorage.getItem("suusriMessages");
+    const savedMessages = localStorage.getItem("syraMessages");
     if (savedMessages) {
       setMessages(JSON.parse(savedMessages));
     }
@@ -107,7 +107,7 @@ const Chat = () => {
 
   const medConfig = {
     identity: {
-      name: "Suusri",
+      name: "Syra",
       creator: "LogicLoom Team",
       gender: "female",
       language: "Odia",
@@ -156,7 +156,7 @@ const Chat = () => {
   };
 
   useEffect(() => {
-    const welcomeText = "Namaste mein hoon Suusri, apki cute health assistant. Bol na, kya hua hai, bandhu? Aaj kya help karu? ...";
+    const welcomeText = "Namaste mein hoon Syra, apki cute health assistant. Bol na, kya hua hai, bandhu? Aaj kya help karu? ...";
     const initialMessages = [{
       text: welcomeText,
       sender: "ai",
@@ -172,13 +172,13 @@ const Chat = () => {
     ];
     setConversationHistory(initialHistory);
 
-    const hindiWelcome = "नमस्ते मैं हूँ सूसरी, आपकी प्यारी हेल्थ असिस्टेंट। बोल ना, क्या हुआ है, बंधु? आज क्या मदत करूँ? ...";
+    const hindiWelcome = "नमस्ते मैं हूँ सायरा, आपकी प्यारी हेल्थ असिस्टेंट। बोल ना, क्या हुआ है, बंधु? आज क्या मदत करूँ? ...";
     speakText(hindiWelcome);
   }, [speakText]);
 
   // Save messages to localStorage whenever they change
   useEffect(() => {
-    localStorage.setItem("suusriMessages", JSON.stringify(messages));
+    localStorage.setItem("syraMessages", JSON.stringify(messages));
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
@@ -230,7 +230,7 @@ const Chat = () => {
     if (window.confirm("Are you sure you want to delete all messages?")) {
       setMessages([]);
       setConversationHistory([]);
-      localStorage.removeItem("suusriMessages");
+      localStorage.removeItem("syraMessages");
       const clearMessage = `All messages deleted! Main nayi shuruaat ke liye taiyaar hoon!`;
       const hindiClearMessage = `सभी संदेश हटा दिए गए! मैं नई शुरुआत के लिए तैयार हूँ!`;
       setMessages([{ text: clearMessage, sender: "ai", timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) }]);
@@ -340,9 +340,9 @@ const Chat = () => {
   return (
     <div className={styles.chatContainer}>
       <div className={styles.header}>
-        <img src={suusriAvatar} alt="Suusri Avatar" className={styles.avatar} />
+        <img src={syraAvatar} alt="Syra Avatar" className={styles.avatar} />
         <div className={styles.headerInfo} onClick={() => navigate('/')} style={{ cursor: 'pointer', flex: 1 }}>
-          <span className={styles.headerTitle}>Suusri</span>
+          <span className={styles.headerTitle}>Syra</span>
           <span className={styles.headerSubtitle}>Smart Universal Health Care AI Assistant</span>
         </div>
         <button onClick={deleteAllMessages} className={styles.deleteButton} title="Clear Chat">

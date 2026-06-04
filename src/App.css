@@ -26,37 +26,37 @@
   /* Pink color */
   font-weight: bold;
   font-family: 'Anton', sans-serif;
-  /* Use Anton for "SuuSri" */
+  /* Use Anton for "Syra" */
 
 }
 
-.suuSriText {
+.syraText {
   font-family: 'Pacifico', cursive;
   /* Use Pacifico for "Meet" */
   color: #FFA500;
-  /* Orange color for SuuSri text */
+  /* Orange color for Syra text */
 }
 
-.suuSriContainer {
+.syraContainer {
   display: flex;
   justify-content: center;
   margin-top: 40px;
 }
 
-.suuSri {
+.syra {
   width: 300px;
   /* Adjust size as needed */
   height: auto;
 }
 
 @media (max-width: 768px) {
-  .suuSri {
+  .syra {
     width: 200px;
   }
 }
 
 @media (max-width: 480px) {
-  .suuSri {
+  .syra {
     width: 150px;
   }
 }

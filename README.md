@@ -1,4 +1,4 @@
-# 🌸 SuuSri — AI Healthcare Assistant
+# 🌸 Syra — AI Healthcare Assistant
 
 > A multilingual, voice-enabled AI health companion built with React, Groq LLM, Firebase, and PWA support — designed to make healthcare guidance accessible in Odia, Hindi, and English.
 
@@ -25,7 +25,7 @@
 
 ## Overview
 
-**SuuSri** (from *Suusri*, a respectful/affectionate address) is a full-stack AI healthcare assistant that provides health guidance in a conversational, voice-enabled interface. It leverages Groq's ultra-fast Llama inference to respond in natural Odia, Hindi, and English, making healthcare information more accessible to regional users in India.
+**Syra** (from *Syra*, a respectful/affectionate address) is a full-stack AI healthcare assistant that provides health guidance in a conversational, voice-enabled interface. It leverages Groq's ultra-fast Llama inference to respond in natural Odia, Hindi, and English, making healthcare information more accessible to regional users in India.
 
 The app is built as a Progressive Web App (PWA), so users can install it on their devices for an app-like experience without visiting an app store.
 
@@ -43,7 +43,7 @@ The app is built as a Progressive Web App (PWA), so users can install it on thei
 - ⚡ **Code Splitting** — Lazy-loaded routes for fast initial load
 - 🛡️ **Error Boundary** — Graceful UI fallback on runtime errors
 - 💬 **Chat History Persistence** — Messages saved to `localStorage` across sessions
-- 🎨 **Animated Splash Screen** — Particle-based animated intro (`/suusri` route)
+- 🎨 **Animated Splash Screen** — Particle-based animated intro (`/syra` route)
 
 ---
 
@@ -66,7 +66,7 @@ The app is built as a Progressive Web App (PWA), so users can install it on thei
 ## Project Structure
 
 ```
-suusri-health-care-ai-assistant/
+syra-health-care-ai-assistant/
 ├── public/
 │   ├── index.html          # HTML entry point
 │   ├── manifest.json       # PWA manifest
@@ -98,9 +98,9 @@ suusri-health-care-ai-assistant/
 │   │   │
 │   │   ├── Main/
 │   │   │   ├── Chat.jsx        # Core AI chat interface (voice + text)
-│   │   │   ├── SuuSri.module.css
-│   │   │   ├── suusri.jsx      # Animated splash/intro screen
-│   │   │   └── suusri.css
+│   │   │   ├── Syra.module.css
+│   │   │   ├── syra.jsx      # Animated splash/intro screen
+│   │   │   └── syra.css
 │   │   │
 │   │   └── Profile/
 │   │       ├── Profile.jsx     # User profile & credits dashboard
@@ -127,7 +127,7 @@ suusri-health-care-ai-assistant/
 | `/` | `Welcome` | Landing page with PWA install prompt |
 | `/main` | `Main` | Main dashboard |
 | `/chat` | `Chat` | AI chat interface (voice + text) |
-| `/suusri` | `SuuSri` | Animated splash/intro screen |
+| `/syra` | `Syra` | Animated splash/intro screen |
 | `/profile` | `Profile` | User profile & credits |
 
 ---
@@ -147,8 +147,8 @@ suusri-health-care-ai-assistant/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/SubhamKhandual007/suusri-health-care-ai-assistant.git
-cd suusri-health-care-ai-assistant
+git clone https://github.com/SubhamKhandual007/syra-health-care-ai-assistant.git
+cd syra-health-care-ai-assistant
 
 # 2. Install dependencies
 npm install
@@ -281,7 +281,7 @@ Contributions, issues, and feature requests are welcome!
 
 ## ⚠️ Medical Disclaimer
 
-SuuSri provides general health information and guidance only. It is **not a substitute for professional medical advice, diagnosis, or treatment**. Always consult a qualified healthcare provider for any medical concerns. In case of emergency, contact your local emergency services immediately.
+Syra provides general health information and guidance only. It is **not a substitute for professional medical advice, diagnosis, or treatment**. Always consult a qualified healthcare provider for any medical concerns. In case of emergency, contact your local emergency services immediately.
 
 ---
 

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://suusri.web.app/</loc>
+    <loc>https://syra.web.app/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://suusri.web.app/#/main</loc>
+    <loc>https://syra.web.app/#/main</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://suusri.web.app/#/chat</loc>
+    <loc>https://syra.web.app/#/chat</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://suusri.web.app/#/suusri</loc>
+    <loc>https://syra.web.app/#/syra</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://suusri.web.app/#/profile</loc>
+    <loc>https://syra.web.app/#/profile</loc>
     <priority>0.6</priority>
   </url>
 </urlset>

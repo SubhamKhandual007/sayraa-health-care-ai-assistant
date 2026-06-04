@@ -5,11 +5,11 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p className="footer-text">© 2026 SuuSri. All rights reserved.</p>
+        <p className="footer-text">© 2026 Syra. All rights reserved.</p>
         
         <div className="footer-about">
-          <p><b>Meet SuuSri, Your Smart Health Care AI Assistant 🤖✨</b></p>
-          <p>SuuSri — Smart Universal User Support & Resource Integration</p>
+          <p><b>Meet Syra, Your Smart Health Care AI Assistant 🤖✨</b></p>
+          <p>Syra — Smart Universal User Support & Resource Integration</p>
           <p>An AI-powered healthcare chatbot, created by Subham Khandual.</p>
           <p>Your 24/7 health companion — ready to assist with symptoms, medication info,</p>
           <p>wellness tips, and general health guidance anytime you need it.</p>

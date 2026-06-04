@@ -1,4 +1,4 @@
-# Suusri Groq API Key Fix - TODO Steps
+# Syra Groq API Key Fix - TODO Steps
 
 ## Plan Breakdown
 1. ✅ [Complete] Create TODO.md tracking progress

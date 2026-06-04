@@ -67,7 +67,7 @@ const Main = () => {
               <div className="col-md-6 order-2 order-md-1">
                 <motion.img
                   src={icon}
-                  alt="SuuSri AI Assistant"
+                  alt="Syra AI Assistant"
                   className="img-fluid custom-image"
                   fetchPriority="high"
                   loading="eager"
@@ -77,10 +77,10 @@ const Main = () => {
               </div>
               <div className="col-md-6 order-1 order-md-2 text-center">
                 <h1 className="header">
-                  <b>Meet</b> <span className="suuSriText">SuuSri</span>, <br />
+                  <b>Meet</b> <span className="syraText">Syra</span>, <br />
                   <b>Your Smart Health Care AI Assistant</b>
                 </h1>
-                <p className="content-text">SuuSri stands for Smart Universal User Support & Resource Integration, providing intelligent healthcare guidance, symptom analysis, and wellness support.</p>
+                <p className="content-text">Syra stands for Smart Universal User Support & Resource Integration, providing intelligent healthcare guidance, symptom analysis, and wellness support.</p>
                 <button className="button-69" role="button" onClick={handleChatNowClick}>
                   <span className="text">
                     <i className="fas fa-comments"></i>
@@ -101,10 +101,10 @@ const Main = () => {
             <div className="row align-items-center">
               <div className="col-md-6 order-1 order-md-1 text-center">
                 <h1 className="header">
-                  <b>Your</b> <span className="suuSriText">Personalized</span> <br />
+                  <b>Your</b> <span className="syraText">Personalized</span> <br />
                   <b>Healthcare Intelligence</b>
                 </h1>
-                <p className="content-text">SuuSri is designed to provide proactive health tracking, analyze your symptoms, and enhance your medical awareness with precise, reliable, and empathetic AI responses.</p>
+                <p className="content-text">Syra is designed to provide proactive health tracking, analyze your symptoms, and enhance your medical awareness with precise, reliable, and empathetic AI responses.</p>
                 <button className="button-69" role="button" onClick={handleVideoConsultClick}>
                   <span className="text">
                     <i className="fas fa-video"></i>
@@ -115,7 +115,7 @@ const Main = () => {
               <div className="col-md-6 order-2 order-md-2">
                 <motion.img
                   src={icon1}
-                  alt="SuuSri AI"
+                  alt="Syra AI"
                   className="img-fluid custom-image"
                   animate={{ y: [0, 15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
@@ -143,10 +143,10 @@ const Main = () => {
               </div>
               <div className="col-md-6 order-1 order-md-2 text-center">
                 <h1 className="header">
-                  <b>Discover</b> <span className="suuSriText">Wellness</span>, <br />
+                  <b>Discover</b> <span className="syraText">Wellness</span>, <br />
                   <b>Smart Diagnostics</b>
                 </h1>
-                <p className="content-text">With cutting-edge medical AI, SuuSri empowers you with accurate symptom analysis, smart health suggestions, and meaningful clinical insights.</p>
+                <p className="content-text">With cutting-edge medical AI, Syra empowers you with accurate symptom analysis, smart health suggestions, and meaningful clinical insights.</p>
                 <button className="button-69" role="button" onClick={handleChatNowClick}>
                   <span className="text">
                     <i className="fas fa-comments"></i>
@@ -167,7 +167,7 @@ const Main = () => {
             whileInView="whileInView"
             viewport={{ once: true }}
           >
-            <h2 className="header mb-5">Why Choose SuuSri?</h2>
+            <h2 className="header mb-5">Why Choose Syra?</h2>
             <div className="row">
               {[
                 { title: "Instant Triage", desc: "Immediate symptom analysis powered by clinical AI algorithms." },
