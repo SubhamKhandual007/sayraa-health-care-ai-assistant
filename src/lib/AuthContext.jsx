@@ -145,8 +145,10 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const clearAuthError = () => setAuthError(null);
+
     return (
-        <AuthContext.Provider value={{ user, loading, loginWithGoogle, logout, authError }}>
+        <AuthContext.Provider value={{ user, loading, loginWithGoogle, logout, authError, clearAuthError }}>
             {children}
         </AuthContext.Provider>
     );

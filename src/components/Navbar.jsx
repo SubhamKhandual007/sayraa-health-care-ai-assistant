@@ -8,7 +8,7 @@ import { useAuth } from "../lib/AuthContext";
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
-    const { user, loginWithGoogle, logout } = useAuth();
+    const { user, loginWithGoogle, logout, authError, clearAuthError } = useAuth();
     const navigate = useNavigate();
     const dropdownRef = useRef(null);
 
@@ -63,6 +63,17 @@ export default function Navbar() {
 
     return (
         <>
+            {authError && (
+                <div className="alert alert-danger alert-dismissible fade show text-center m-0 rounded-0" role="alert" style={{ zIndex: 1100, position: 'relative' }}>
+                    <div className="container position-relative">
+                        <strong>Authentication Error:</strong> {authError}
+                        <div className="small mt-1">
+                            Please make sure Google Sign-in is enabled in your Firebase Console (Authentication &gt; Sign-in method) and this domain is added to your Authorized Domains list.
+                        </div>
+                        <button type="button" className="btn-close" aria-label="Close" onClick={clearAuthError} style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', border: 'none', background: 'transparent', fontSize: '1.25rem', cursor: 'pointer' }}>×</button>
+                    </div>
+                </div>
+            )}
             <nav className={`navbar navbar-expand-lg sticky-top ${scrolled ? 'scrolled' : ''}`}>
                 <div className="container d-flex justify-content-between align-items-center">
                     <a className="navbar-brand" href="/"><b>Sayraa</b></a>
