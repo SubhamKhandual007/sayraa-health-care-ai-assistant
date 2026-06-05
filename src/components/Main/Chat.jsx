@@ -2,8 +2,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Sayraa.module.css";
 import Picker from "emoji-picker-react";
-import sayraaAvatar from "../../Assets/img/suulogo.png";
-import chatBg from "../../Assets/img/chat_bg.png";
+import sayraaAvatar from "../../Assets/img/suulogo.webp";
+import chatBg from "../../Assets/img/chat_bg.webp";
 
 const API_BASE_URL = "http://localhost:5000";
 

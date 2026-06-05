@@ -167,10 +167,10 @@ const VideoConsultation = () => {
     setIsAiTyping(true); // Show typing indicator
     
     try {
-      const systemPrompt = `You are Sayraa (pronounced "Sigh-raa"), an advanced AI doctor with comprehensive knowledge across all medical departments, diseases, and diagnoses. 
+      const systemPrompt = `You are an advanced AI doctor with comprehensive knowledge across all medical departments, diseases, and diagnoses. 
       Analyze the patient's symptoms, provide preliminary medical guidance, health suggestions, precautionary measures, and basic treatment recommendations. 
       If it sounds like an emergency (e.g., severe chest pain, stroke symptoms, difficulty breathing), immediately generate an emergency alert recommendation.
-      Be empathetic, concise, and speak clearly as this will be read out loud via text-to-speech. Communicate naturally in Hinglish or English based on the user's input. Do not use emojis or complex formatting. Keep answers under 3-4 sentences. IMPORTANT: When referring to yourself, always write your name as "Sayraa".`;
+      Be empathetic, concise, and speak clearly as this will be read out loud via text-to-speech. Communicate naturally in Hinglish or English based on the user's input. Do not use emojis or complex formatting. Keep answers under 3-4 sentences. IMPORTANT: Do NOT mention or repeat your name "Sayraa" in any response. The patient already knows who you are from the greeting. Just respond directly as a doctor without introducing or naming yourself.`;
 
       const groqMessages = [
         { role: "system", content: systemPrompt },
@@ -308,7 +308,7 @@ const VideoConsultation = () => {
 
       <div className={styles.mainContent}>
         <img 
-          src="/doctors/sayraa_general.png" 
+          src="/doctors/sayraa_general.webp" 
           alt="Dr. AI" 
           className={styles.doctorImage} 
           style={{ animation: aiResponse ? 'pulse 2s infinite alternate' : 'none' }}

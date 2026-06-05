@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import './Main.css';
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../lib/AuthContext";
@@ -85,7 +84,7 @@ export default function Navbar() {
                             className="btn btn-sm d-flex align-items-center"
                             style={{ background: 'linear-gradient(90deg, #6366f1, #a855f7)', color: 'white', borderRadius: '20px', padding: '5px 12px', border: 'none', fontWeight: 'bold', fontSize: '0.85rem' }}
                         >
-                            <i className="fas fa-video me-1"></i> <span>Consult</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '4px' }}><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg> <span>Consult</span>
                         </button>
 
                         <div className="nav-profile-wrapper" ref={dropdownRef}>
@@ -98,12 +97,12 @@ export default function Navbar() {
                                   referrerPolicy="no-referrer"
                                   onError={(e) => {
                                     e.target.style.display = 'none';
-                                    e.target.parentElement.innerHTML = '<div class="profile-dummy-icon"><i class="fas fa-user-circle"></i></div>';
+                                    e.target.parentElement.innerHTML = '<div class="profile-dummy-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-inline-block"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>';
                                   }}
                                 />
                             ) : (
                                 <div className="profile-dummy-icon">
-                                    <i className="fas fa-user-circle"></i>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="d-inline-block"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                 </div>
                             )}
                         </div>
@@ -117,13 +116,13 @@ export default function Navbar() {
                                 </div>
                                 <hr className="dropdown-divider" />
                                 <button className="dropdown-item" onClick={() => { setShowDropdown(false); navigate('/video-consultation'); }}>
-                                    <i className="fas fa-video text-primary"></i> Video Consult
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px', color: '#007bff' }}><path d="M23 7l-7 5 7 5V7z"></path><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg> Video Consult
                                 </button>
                                 <button className="dropdown-item" onClick={handleGoToProfile}>
-                                    <i className="fas fa-user text-info"></i> Profile
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px', color: '#17a2b8' }}><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Profile
                                 </button>
                                 <button className="dropdown-item dropdown-logout" onClick={handleLogout}>
-                                    <i className="fas fa-sign-out-alt"></i> Logout
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px', color: '#ff6b6b' }}><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Logout
                                 </button>
                             </div>
                         )}

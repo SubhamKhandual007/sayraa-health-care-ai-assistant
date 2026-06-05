@@ -1,8 +1,3 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-
 let app = null;
 let auth = null;
 let provider = null;
@@ -20,15 +15,20 @@ const firebaseConfig = {
   measurementId: "G-NMVKJ1VMF6"
 };
 
-export function getFirebase() {
+export async function getFirebase() {
     if (initialized && app) return { app, auth, provider, db, analytics };
 
     try {
+        const { initializeApp } = await import("firebase/app");
+        const { getAuth, GoogleAuthProvider } = await import("firebase/auth");
+        const { getFirestore } = await import("firebase/firestore");
+
         app = initializeApp(firebaseConfig);
         auth = getAuth(app);
         provider = new GoogleAuthProvider();
         db = getFirestore(app);
         try {
+            const { getAnalytics } = await import("firebase/analytics");
             analytics = getAnalytics(app);
         } catch (e) {
             console.warn("Firebase Analytics failed to initialize:", e);

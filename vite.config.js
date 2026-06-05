@@ -19,10 +19,31 @@ export default defineConfig({
         sourcemap: false,
         rollupOptions: {
             output: {
-                manualChunks: {
-                    // Vendor chunks for better caching
-                    'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-                    'vendor-ui': ['react-bootstrap', 'framer-motion'],
+                manualChunks(id) {
+                    if (id.includes('node_modules')) {
+                        if (id.includes('firebase')) {
+                            return 'vendor-firebase';
+                        }
+                        if (id.includes('framer-motion')) {
+                            return 'vendor-framer';
+                        }
+                        if (id.includes('bootstrap') || id.includes('react-bootstrap')) {
+                            return 'vendor-bootstrap';
+                        }
+                        if (id.includes('emoji-picker-react')) {
+                            return 'vendor-emoji';
+                        }
+                        if (id.includes('@elevenlabs')) {
+                            return 'vendor-elevenlabs';
+                        }
+                        if (id.includes('@google') || id.includes('groq-sdk') || id.includes('axios')) {
+                            return 'vendor-core-libs';
+                        }
+                        if (id.includes('react') || id.includes('react-dom') || id.includes('react-router') || id.includes('react-router-dom')) {
+                            return 'vendor-react';
+                        }
+                        return 'vendor-others';
+                    }
                 },
             },
         },

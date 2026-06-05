@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
         let unsubscribe;
         const initAuth = async () => {
             try {
-                const { auth, db } = getFirebase();
+                const { auth, db } = await getFirebase();
                 unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
                     if (firebaseUser) {
                         // 1. Instantly set user state with local details so the UI loads immediately!
@@ -113,7 +113,7 @@ export const AuthProvider = ({ children }) => {
     const loginWithGoogle = async () => {
         try {
             setAuthError(null);
-            const { auth, provider } = getFirebase();
+            const { auth, provider } = await getFirebase();
             const result = await signInWithPopup(auth, provider);
             return result.user;
         } catch (error) {
@@ -136,7 +136,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            const { auth } = getFirebase();
+            const { auth } = await getFirebase();
             await signOut(auth);
             setUser(null);
             localStorage.removeItem('user');
