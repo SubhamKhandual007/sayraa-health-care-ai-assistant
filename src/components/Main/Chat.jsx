@@ -356,7 +356,7 @@ const Chat = () => {
           backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.9), rgba(30, 27, 75, 0.9)), url(${sayraaAvatar}), url(${chatBg})`,
           backgroundPosition: 'center, center, center',
           backgroundRepeat: 'no-repeat, no-repeat, no-repeat',
-          backgroundSize: 'auto, min(420px, 80vw), cover'
+          backgroundSize: '100% 100%, min(420px, 80vw) auto, cover'
         }}
       >
         {messages.map((msg, index) => (
