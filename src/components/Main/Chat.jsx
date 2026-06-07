@@ -353,10 +353,7 @@ const Chat = () => {
         id="chatBox" 
         className={styles.chatBox}
         style={{
-          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.9), rgba(30, 27, 75, 0.9)), url(${sayraaAvatar}), url(${chatBg})`,
-          backgroundPosition: 'center, center, center',
-          backgroundRepeat: 'no-repeat, no-repeat, no-repeat',
-          backgroundSize: '100% 100%, min(420px, 80vw) auto, cover'
+          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.85), rgba(30, 27, 75, 0.85)), url(${chatBg})`
         }}
       >
         {messages.map((msg, index) => (
