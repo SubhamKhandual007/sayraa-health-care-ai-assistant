@@ -343,7 +343,7 @@ const Chat = () => {
         <img src={sayraaAvatar} alt="Sayraa Avatar" className={styles.avatar} />
         <div className={styles.headerInfo} onClick={() => navigate('/')} style={{ cursor: 'pointer', flex: 1 }}>
           <span className={styles.headerTitle}>Sayraa</span>
-          <span className={styles.headerSubtitle}>Smart Universal Health Care AI Assistant</span>
+          <span className={styles.headerSubtitle}>Your Smart Health Care AI Assistant</span>
         </div>
         <button onClick={deleteAllMessages} className={styles.deleteButton} title="Clear Chat">
           🗑️

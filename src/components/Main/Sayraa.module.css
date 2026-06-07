@@ -63,7 +63,8 @@
 
 @media (max-width: 480px) {
   .headerSubtitle {
-    display: none;
+    display: block;
+    font-size: 10px;
   }
 
   .avatar {
@@ -74,6 +75,7 @@
   }
 
   .headerTitle {
+    display: block;
     font-size: 14px;
   }
 
