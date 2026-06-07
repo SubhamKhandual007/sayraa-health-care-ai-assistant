@@ -169,8 +169,8 @@
   display: block;
   margin: 0 auto;
   position: relative;
-  max-width: 380px;
-  max-height: 360px;
+  max-width: 500px;
+  max-height: 480px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -265,8 +265,8 @@
   }
 
   .custom-image {
-    max-width: 280px;
-    max-height: 260px;
+    max-width: 380px;
+    max-height: 360px;
     margin-bottom: 20px;
   }
 
@@ -293,8 +293,8 @@
   }
 
   .custom-image {
-    max-width: 220px;
-    max-height: 200px;
+    max-width: 280px;
+    max-height: 260px;
   }
 
   .button-69 {
@@ -320,8 +320,8 @@
   }
 
   .custom-image {
-    max-width: 220px;
-    max-height: 200px;
+    max-width: 280px;
+    max-height: 260px;
   }
 }
 
